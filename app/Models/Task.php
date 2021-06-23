@@ -14,4 +14,7 @@ class Task extends Model
         'task_name',
         'update_time',
     ];
+		public static $rules = array(
+			'task_name' => 'required',
+	);
 }
