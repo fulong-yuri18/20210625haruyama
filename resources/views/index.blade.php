@@ -16,7 +16,7 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
         <div class="todo">
-        <form action="#" method="post" class="flex between mb-30">
+        <form action="" method="post" class="flex between mb-30">
           @csrf
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
@@ -34,7 +34,7 @@
             <td>
               {{$item->created_at}}
             </td>
-            <form action="#" method="post">
+            <form action="" method="post">
               @csrf
               <td>
                 <input type="text" class="input-update" value={{$item->task_name}} name="content" />
@@ -44,7 +44,7 @@
               </td>
             </form>
             <td>
-              <form action="#" method="post">
+              <form action="" method="post">
                 @csrf
                 <button class="button-delete">削除</button>
               </form>
