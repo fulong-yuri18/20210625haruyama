@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,12 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', [TaskController::class, 'index']);
-Route::get('/find', [TaskController::class, 'find']);
-Route::post('/find', [TaskController::class, 'search']);
-Route::get('/add', [TaskController::class, 'add']);
-Route::post('/add', [TaskController::class, 'create']);
-Route::get('/edit', [TaskController::class, 'edit']);
-Route::post('/edit', [TaskController::class, 'update']);
-Route::get('/delete', [TaskController::class, 'delete']);
-Route::post('/delete', [TaskController::class, 'remove']);
+Route::get('/', [TodoController::class, 'index']);
+Route::get('/find', [TodoController::class, 'find']);
+Route::post('/find', [TodoController::class, 'search']);
+Route::get('/add', [TodoController::class, 'add']);
+Route::post('/add', [TodoController::class, 'create']);
+Route::get('/edit', [TodoController::class, 'edit']);
+Route::post('/edit', [TodoController::class, 'update']);
+Route::get('/delete', [TodoController::class, 'delete']);
+Route::post('/delete', [TodoController::class, 'remove']);

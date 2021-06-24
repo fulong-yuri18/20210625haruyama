@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Todo extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'insert_time',
-        'task_name',
-        'update_time',
-    ];
+    protected $guarded = array('id');
 		public static $rules = array(
-			'task_name' => 'required',
+			'content' => 'required',
 	);
 }

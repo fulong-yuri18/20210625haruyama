@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class TodoController extends Controller
 {
     /**
      * Display a listing of the resource.
