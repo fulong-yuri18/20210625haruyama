@@ -30,7 +30,7 @@
             <th>削除</th>
           </tr>
           @foreach ($items as $item)
-					<input type="hidden" name="id">
+					<input type="hidden" name="id" value={{$item->id}}>
           <tr>
             <td>
               {{$item->created_at}}
