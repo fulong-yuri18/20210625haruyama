@@ -15,3 +15,11 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', [TaskController::class, 'index']);
+Route::get('/find', [TaskController::class, 'find']);
+Route::post('/find', [TaskController::class, 'search']);
+Route::get('/add', [TaskController::class, 'add']);
+Route::post('/add', [TaskController::class, 'create']);
+Route::get('/edit', [TaskController::class, 'edit']);
+Route::post('/edit', [TaskController::class, 'update']);
+Route::get('/delete', [TaskController::class, 'delete']);
+Route::post('/delete', [TaskController::class, 'remove']);

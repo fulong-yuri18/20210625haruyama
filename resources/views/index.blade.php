@@ -16,7 +16,7 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
         <div class="todo">
-        <form action="" method="post" class="flex between mb-30">
+        <form action="/add" method="post" class="flex between mb-30">
           @csrf
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
@@ -30,11 +30,12 @@
             <th>削除</th>
           </tr>
           @foreach ($items as $item)
+					<input type="hidden" name="id">
           <tr>
             <td>
               {{$item->created_at}}
             </td>
-            <form action="" method="post">
+            <form action="edit" method="post">
               @csrf
               <td>
                 <input type="text" class="input-update" value={{$item->task_name}} name="content" />
@@ -44,7 +45,7 @@
               </td>
             </form>
             <td>
-              <form action="" method="post">
+              <form action="delete" method="post">
                 @csrf
                 <button class="button-delete">削除</button>
               </form>

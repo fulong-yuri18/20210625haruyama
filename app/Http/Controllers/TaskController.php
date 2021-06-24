@@ -23,9 +23,19 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $this->validate($request, Task::$rules);
+        $person = new Task;
+        $form = $request->all();
+        unset($form['_token_']);
+        $person->fill($form)->save();
+        return redirect('/add');
+    }
+
+    public function find(Request $request)
+    {
+        return view('find', ['input' => '']);
     }
 
     /**
@@ -56,9 +66,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $task = Task::find($request->id);
+        return view('/',['form'=>$task]);
     }
 
     /**
@@ -68,9 +79,14 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, Task::$rules);
+        $task = Task::find($request->id);
+        $form = $request->all();
+        unset($form['_token_']);
+        $task->fill($form)->save();
+          return redirect('/edit');
     }
 
     /**
