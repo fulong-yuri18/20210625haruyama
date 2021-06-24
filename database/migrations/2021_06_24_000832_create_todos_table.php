@@ -14,7 +14,7 @@ class CreateTodosTable extends Migration
     public function up()
     {
         Schema::create('todos', function (Blueprint $table) {
-            $table->biginteger('id')->id()->length(20);
+            $table->id()->biginteger('id')->length(20);
 						$table->string('content')->length(191);
 						$table->timestamp('created_at')->useCurrent()->nullable();
 						$table->timestamp('updated_at')->useCurrent()->nullable();
