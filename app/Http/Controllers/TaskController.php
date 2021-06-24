@@ -30,7 +30,7 @@ class TaskController extends Controller
         $form = $request->all();
         unset($form['_token_']);
         $person->fill($form)->save();
-        return redirect('/add');
+        return redirect('/');
     }
 
     public function find(Request $request)
@@ -89,14 +89,14 @@ class TaskController extends Controller
           return redirect('/edit');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        //
+        $task = Task::find($request->id);
+        return view('delete',['form'=>$person]);
+    }
+    public function remove(Request $request)
+    {
+        Task::find($request->id)->delete();
+        return redirect('/');
     }
 }
