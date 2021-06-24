@@ -18,7 +18,7 @@
         <div class="todo">
         <form action="/add" method="post" class="flex between mb-30">
           @csrf
-          <input type="text" class="input-add" name="content" />
+          <input type="text" class="input-add" name="task_name" />
           <input class="button-add" type="submit" value="追加" />
         </form>
         @if (count($items) > 0)
