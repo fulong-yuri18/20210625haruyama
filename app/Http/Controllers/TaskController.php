@@ -26,10 +26,10 @@ class TaskController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Task::$rules);
-        $person = new Task;
+        $task = new Task;
         $form = $request->all();
         unset($form['_token_']);
-        $person->fill($form)->save();
+        $task->fill($form)->save();
         return redirect('/');
     }
 
@@ -92,7 +92,7 @@ class TaskController extends Controller
     public function delete(Request $request)
     {
         $task = Task::find($request->id);
-        return view('delete',['form'=>$person]);
+        return view('delete',['form'=>$task]);
     }
     public function remove(Request $request)
     {
