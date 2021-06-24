@@ -21,7 +21,7 @@
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
         </form>
-        @if ($items != null)
+        @if (count($items) > 0)
         <table>
           <tr>
             <th>作成日</th>
