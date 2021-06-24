@@ -38,7 +38,7 @@
             <form action="edit" method="post">
               @csrf
               <td>
-                <input type="text" class="input-update" value={{$item->task_name}} name="content" />
+                <input type="text" class="input-update" value={{$item->task_name}} name="task_name" />
               </td>
               <td>
                 <button class="button-update">更新</button>
