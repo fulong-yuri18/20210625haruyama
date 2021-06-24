@@ -16,7 +16,7 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
         <div class="todo">
-        <form action="/add" method="post" class="flex between mb-30">
+        <form action="/todo/create" method="post" class="flex between mb-30">
           @csrf
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
@@ -34,7 +34,7 @@
             <td>
               {{$item->created_at}}
             </td>
-            <form action="/edit" method="post">
+            <form action="/todo/update" method="post">
               @csrf
               <td>
                 <input type="text" class="input-update" value={{$item->content}} name="content" />
@@ -45,8 +45,9 @@
               </td>
             </form>
             <td>
-              <form action="delete" method="post">
+              <form action="/todo/delete" method="post">
                 @csrf
+								<input type="hidden" name="id" value={{$item->id}}>
                 <button class="button-delete">削除</button>
               </form>
             </td>
