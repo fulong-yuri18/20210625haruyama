@@ -14,7 +14,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $items = Task::all();
+        $items = Todo::all();
         return view('index', ['items' => $items]);
     }
 
@@ -25,11 +25,11 @@ class TodoController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, Task::$rules);
-        $task = new Task;
+        $this->validate($request, Todo::$rules);
+        $todo = new Todo;
         $form = $request->all();
         unset($form['_token_']);
-        $task->fill($form)->save();
+        $todo->fill($form)->save();
         return redirect('/');
     }
 
@@ -68,8 +68,8 @@ class TodoController extends Controller
      */
     public function edit(Request $request)
     {
-        $task = Task::find($request->id);
-        return view('/',['form'=>$task]);
+        $todo = Todo::find($request->id);
+        return view('/',['form'=>$todo]);
     }
 
     /**
@@ -81,22 +81,22 @@ class TodoController extends Controller
      */
     public function update(Request $request)
     {
-        $this->validate($request, Task::$rules);
-        $task = Task::find($request->id);
+        $this->validate($request, Todo::$rules);
+        $todo = Todo::find($request->id);
         $form = $request->all();
         unset($form['_token_']);
-        $task->fill($form)->save();
+        $todo->fill($form)->save();
           return redirect('/edit');
     }
 
     public function delete(Request $request)
     {
-        $task = Task::find($request->id);
-        return view('delete',['form'=>$task]);
+        $todo = Todo::find($request->id);
+        return view('delete',['form'=>$todo]);
     }
     public function remove(Request $request)
     {
-        Task::find($request->id)->delete();
+        Todo::find($request->id)->delete();
         return redirect('/');
     }
 }
