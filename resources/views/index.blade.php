@@ -30,16 +30,16 @@
             <th>削除</th>
           </tr>
           @foreach ($items as $item)
-					<input type="hidden" name="id" value={{$item->id}}>
           <tr>
             <td>
               {{$item->created_at}}
             </td>
-            <form action="edit" method="post">
+            <form action="/edit" method="post">
               @csrf
               <td>
                 <input type="text" class="input-update" value={{$item->content}} name="content" />
-              </td>
+                <input type="hidden" name="id" value={{$item->id}}>
+							</td>
               <td>
                 <button class="button-update">更新</button>
               </td>
